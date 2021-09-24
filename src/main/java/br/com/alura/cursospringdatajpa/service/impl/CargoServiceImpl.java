@@ -1,16 +1,12 @@
 package br.com.alura.cursospringdatajpa.service.impl;
 
 import static org.apache.logging.log4j.util.Strings.isEmpty;
-import static org.springframework.util.StringUtils.isEmpty;
-
-import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import br.com.alura.cursospringdatajpa.model.Cargo;
 import br.com.alura.cursospringdatajpa.repository.CargoRepository;
@@ -34,10 +30,13 @@ public class CargoServiceImpl implements CargoService {
 		return cargos;
 	}
 
-	@Override
 	public Cargo buscarPorId(Long id) {
 		return repository.findById(id)
 					     .orElseThrow(() -> new EmptyResultDataAccessException(1));
+	}
+
+	public void deletarPorId(Long id) {
+		repository.deleteById(id);
 	}
 	
 }
