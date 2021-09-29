@@ -55,6 +55,8 @@ public class FuncionarioController {
 								.cpf(Funcionario.getCpf())
 								.salario(Funcionario.getSalario())
 								.dataContratacao(Funcionario.getDataContratacao())
+								.unidade(Funcionario.getUnidade())
+								.cargo(Funcionario.getCargo())
 								.build();
 		Funcionario funcionarioAtualizado = service.salvar(funcionarioBuild);
 		return ResponseEntity.status(HttpStatus.OK).body(funcionarioAtualizado);
