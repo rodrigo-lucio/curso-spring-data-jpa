@@ -16,6 +16,6 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
 
 	Page<Funcionario> findByNomeContainingIgnoreCase(Pageable pageable, String nome);
 	
-	@Query("SELECT FROM Funcionario f WHERE f.nome = :nome AND f.salario >= :salario and f.dataContracacao = :dataContracacao")
+	@Query("SELECT f FROM Funcionario f WHERE f.nome = :nome AND f.salario >= :salario and f.dataContratacao = :dataContratacao")
 	List<Funcionario> findNomeDataContratacaoSalarioMaior(String nome, Double salario, LocalDate dataContratacao);
 }
