@@ -1,8 +1,8 @@
-package br.com.alura.cursospringdatajpa.controller;
+package br.com.alura.cursospringdatajpa.model;
 
 public interface FuncionarioProjecao {
 
-	Integer getId();
+	Long getId();
 	String getNome();
 	Double getSalario();
 }

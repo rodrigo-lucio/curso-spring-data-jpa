@@ -2,6 +2,8 @@ package br.com.alura.cursospringdatajpa.service.impl;
 
 import static org.apache.logging.log4j.util.Strings.isEmpty;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
@@ -9,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import br.com.alura.cursospringdatajpa.model.Funcionario;
+import br.com.alura.cursospringdatajpa.model.FuncionarioProjecao;
 import br.com.alura.cursospringdatajpa.repository.FuncionarioRepository;
 import br.com.alura.cursospringdatajpa.service.FuncionarioService;
 
@@ -39,4 +42,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 		repository.deleteById(id);
 	}
 	
+	public List<FuncionarioProjecao> buscarPorProjecao() {
+		return repository.funcionarioProjecao();
+	}
 }

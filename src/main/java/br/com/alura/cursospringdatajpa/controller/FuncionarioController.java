@@ -1,5 +1,7 @@
 package br.com.alura.cursospringdatajpa.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.alura.cursospringdatajpa.model.Funcionario;
+import br.com.alura.cursospringdatajpa.model.FuncionarioProjecao;
 import br.com.alura.cursospringdatajpa.service.FuncionarioService;
 
 @RestController
@@ -39,6 +42,12 @@ public class FuncionarioController {
 	private ResponseEntity<Funcionario> buscarPorId(@PathVariable Long id) {
 		Funcionario funcionario = service.buscarPorId(id);
 		return ResponseEntity.ok(funcionario);
+	}
+	
+	@GetMapping("/projecao")
+	private ResponseEntity<List<FuncionarioProjecao>> listarProjecao() {
+		List<FuncionarioProjecao> funcionarios = service.buscarPorProjecao();
+		return ResponseEntity.ok(funcionarios);
 	}
 	
 	@PostMapping

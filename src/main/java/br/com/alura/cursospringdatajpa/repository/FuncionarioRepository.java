@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import br.com.alura.cursospringdatajpa.controller.FuncionarioProjecao;
 import br.com.alura.cursospringdatajpa.model.Funcionario;
+import br.com.alura.cursospringdatajpa.model.FuncionarioProjecao;
 
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
@@ -23,7 +23,7 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
 	@Query(value="SELECT * FROM funcionarios f WHERE f.salario >= :salario", nativeQuery=true)
 	List<Funcionario> buscarComSalarioMaiorQue(Double salario);
 	
-	@Query(value = "SELECT f.id, f.nome, f.salario FROM funcionario f", nativeQuery=true)
-	List<FuncionarioProjecao> funcionarioSalario();
+	@Query(value = "SELECT f.id, f.nome, f.salario FROM funcionarios f", nativeQuery=true)
+	List<FuncionarioProjecao> funcionarioProjecao();
 	
 }
