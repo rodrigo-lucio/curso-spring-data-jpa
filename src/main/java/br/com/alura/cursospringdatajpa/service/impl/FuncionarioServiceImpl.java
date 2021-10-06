@@ -14,6 +14,7 @@ import br.com.alura.cursospringdatajpa.model.Funcionario;
 import br.com.alura.cursospringdatajpa.model.FuncionarioProjecao;
 import br.com.alura.cursospringdatajpa.repository.FuncionarioRepository;
 import br.com.alura.cursospringdatajpa.service.FuncionarioService;
+import br.com.alura.cursospringdatajpa.specification.SpecificationFuncionario;
 
 @Service
 public class FuncionarioServiceImpl implements FuncionarioService {
@@ -45,4 +46,10 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 	public List<FuncionarioProjecao> buscarPorProjecao() {
 		return repository.funcionarioProjecao();
 	}
+	
+	public Page<Funcionario> listarPaginadoSpecification(Pageable pageable, String nome) {
+		Page<Funcionario> funcionarios = repository.findAll(SpecificationFuncionario.nome(nome), pageable);
+		return funcionarios;
+	}
 }
+

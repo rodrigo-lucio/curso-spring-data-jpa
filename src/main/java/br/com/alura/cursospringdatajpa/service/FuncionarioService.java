@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import br.com.alura.cursospringdatajpa.model.Funcionario;
 import br.com.alura.cursospringdatajpa.model.FuncionarioProjecao;
+import br.com.alura.cursospringdatajpa.specification.SpecificationFuncionario;
 
 public interface FuncionarioService {
 
@@ -15,4 +16,5 @@ public interface FuncionarioService {
 	Funcionario buscarPorId(Long id);
 	void deletarPorId(Long id);
 	List<FuncionarioProjecao> buscarPorProjecao();
+	Page<Funcionario> listarPaginadoSpecification(Pageable pageable, String descricao);
 }

@@ -50,6 +50,13 @@ public class FuncionarioController {
 		return ResponseEntity.ok(funcionarios);
 	}
 	
+	@GetMapping("/specification")
+	private ResponseEntity<Page<Funcionario>> listarSpecification(Pageable pageable, 
+			@RequestParam String nome) {
+		Page<Funcionario> funcionarios = service.listarPaginadoSpecification(pageable, nome);
+		return ResponseEntity.ok(funcionarios);
+	}
+	
 	@PostMapping
 	private ResponseEntity<Funcionario> cadastrar(@RequestBody @Valid Funcionario Funcionario) {
 		Funcionario funcionarioCriado = service.salvar(Funcionario);
