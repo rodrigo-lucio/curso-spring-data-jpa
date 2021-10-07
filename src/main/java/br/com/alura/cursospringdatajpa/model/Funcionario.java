@@ -47,7 +47,7 @@ public class Funcionario implements Serializable {
 	@NotNull
 	private LocalDate dataContratacao;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cargo_id")	
 	private Cargo cargo;
 	
